@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  root 'static_pages#index'
+  get 'users' => 'users#new'
+  post '/users' => 'users#create'
+  post 'users/login' => 'users#login'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

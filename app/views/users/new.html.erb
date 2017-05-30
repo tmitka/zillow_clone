@@ -1,0 +1,30 @@
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <ul>
+            <li>
+                <%= error %>
+            </li>
+        </ul>
+    <% end %>
+<% end %>
+<p>Register for Tillow!</p>
+    <form action="/users" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            First Name:<input type="text" name="user[first_name]" value="<%= flash[:errors]%>"><br><br>
+            Last Name:<input type="text" name="user[last_name]" value=""><br><br>
+            Email:<input type="text" name="user[email]" value=""><br><br>
+            Password:<input type="password" name="user[password]" value=""><br><br>
+            Confirm Password:<input type="password" name="user[password_confirmation]" value=""><br><br>
+            Are you an Agent?<input name="user[agent]" type="radio" value="true" /> Yes
+<input name="user[agent]" type="radio" value="false" /> No<br><br>
+
+        <input type="submit" name="" value="Register"><br><br>
+    </form>
+
+<p>Already signed up? Login here:</p>
+    <form action="/users/login" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            Email:<input type="text" name="email" value=""><br><br>
+            Password:<input type="password" name="password" value=""><br><br>
+        <input type="submit" name="" value="Login">
+    </form>
