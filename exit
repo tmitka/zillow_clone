@@ -1,0 +1,31 @@
+**************** 1. row ****************
+         id: 1
+    address: 1343 March St
+   bedrooms: 2
+  bathrooms: 1.0
+    zipcode: 60643
+      price: 523648.0
+       rent: false
+description: this is the best house ever!
+    user_id: 
+  longitude: 234.623
+   latitude: 972.839
+      sq_ft: 560
+ created_at: 2017-05-30 18:49:31 UTC
+ updated_at: 2017-05-30 18:49:31 UTC
+**************** 2. row ****************
+         id: 2
+    address: 1343 December St
+   bedrooms: 3
+  bathrooms: 2.0
+    zipcode: 60451
+      price: 350000.0
+       rent: false
+description: Best house of my life!
+    user_id: 
+  longitude: 4564.623
+   latitude: 232.839
+      sq_ft: 950
+ created_at: 2017-05-30 18:50:53 UTC
+ updated_at: 2017-05-30 18:50:53 UTC
+2 rows in set
