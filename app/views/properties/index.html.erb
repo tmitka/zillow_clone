@@ -1,0 +1,43 @@
+<h1>Find Your Tiny Key to Sucess</h1>
+<hr>
+<h3><a href="/properties/new">Sell</a></h3>
+<form class="" action="index.html" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="text" name="search_property" value="">
+  <input type="submit" name="" value="Search">
+</form>
+<br><br>
+<h3>Current Listings</h3>
+<table border="1", cellpadding="10">
+  <tr>
+    <th>Address</th>
+    <th>Zip Code</th>
+    <th>Bedrooms</th>
+    <th>Bathrooms</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Rent?</th>
+    <th>Square Footage</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Actions</th>
+  </tr>
+  <% @properties.each do |p| %>
+  <tr>
+    <td><%= p.address %></td>
+    <td><%= p.zipcode %></td>
+    <td><%= p.bedrooms %></td>
+    <td><%= p.bathrooms %></td>
+    <td><%= p.description %></td>
+    <td>$<%= p.price %></td>
+    <td><%= p.rent %></td>
+    <td><%= p.sq_ft %> ft.</td>
+    <td><%= p.latitude %></td>
+    <td><%= p.longitude %></td>
+    <td>
+      <a href="/properties/<%= p.id %>">View</a><br>
+      <a href="/properties/<%= p.id %>/delete" data-method="delete">Delete</a>
+    </td>
+  </tr>
+  <% end %>
+</table>
