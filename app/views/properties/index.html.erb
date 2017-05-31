@@ -3,8 +3,8 @@
 <nav>
   <%if session[:current_user_name]%>
   Logged in as <%= session[:current_user_name]%><br />
-  <%end%>
   <a href="/properties/new">Add a listing</a><br />
+  <%end%>
   <% if session[:current_user_id]%>
   <a href="/users/<%=session[:current_user_id]%>">Edit Profile</a><br />
   <a href="/logout">Logout</a><br />

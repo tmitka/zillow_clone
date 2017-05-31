@@ -1,9 +1,9 @@
 <nav>
   <%if session[:current_user_name]%>
   Logged in as <%= session[:current_user_name]%><br />
+  <a href="/properties/new">Add a listing</a><br />
   <%end%>
   <a href="/properties">Home</a><br />
-  <a href="/properties/new">Add a listing</a><br />
 </nav>
 <hr />
 <% if flash[:errors] %>

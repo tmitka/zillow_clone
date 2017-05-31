@@ -19,6 +19,7 @@ class UsersController < ApplicationController
         if @user
         session[:current_user_id] = @user.id
         session[:current_user_name] = @user.first_name
+        session[:current_user_email]
         redirect_to '/'
         else
         flash[:errors] = ["Invalid email or password"]

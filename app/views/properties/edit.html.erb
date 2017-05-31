@@ -1,5 +1,15 @@
-<a href="/properties">Dashboard</a>
-<hr>
+<nav>
+  <%if session[:current_user_name]%>
+  Logged in as <%= session[:current_user_name]%><br />
+  <%end%>
+  <a href="/properties">Home</a><br />
+  <% if session[:current_user_id]%>
+  <a href="/logout">Logout</a><br />
+  <%else%>
+  <a href="/users">Login/Register</a><br />
+  <%end %>
+</nav>
+<hr />
 <h1>Edit Tiny House Listing ID: <%= @property.id %></h1>
 <form action="/properties/<%= @property.id%>" method="post">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
