@@ -10,11 +10,12 @@
 <p>Register for Tillow!</p>
     <form action="/users" method="post">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-            First Name:<input type="text" name="user[first_name]" value="<%= flash[:errors]%>"><br><br>
+            First Name:<input type="text" name="user[first_name]" value=""><br><br>
             Last Name:<input type="text" name="user[last_name]" value=""><br><br>
             Email:<input type="text" name="user[email]" value=""><br><br>
             Password:<input type="password" name="user[password]" value=""><br><br>
             Confirm Password:<input type="password" name="user[password_confirmation]" value=""><br><br>
+            Phone Number:<input type="text" name="user[phone_number]"><br><br>
             Are you an Agent?<input name="user[agent]" type="radio" value="true" /> Yes
 <input name="user[agent]" type="radio" value="false" /> No<br><br>
 

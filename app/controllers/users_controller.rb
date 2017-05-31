@@ -25,8 +25,27 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+    end
+
+    def update
+        @user = current_user
+        if @user.valid?
+            @user.update(user_params)
+            @user.save
+            redirect_to "/users/#{@user.id}"
+        else flash[:errors]= @user.errors.full_messages
+            redirect_to "/users/#{@user.id}"
+        end
+    end
+
+    def logout
+        session.clear
+        redirect_to '/'
+    end
+
   private
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :agent)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone_number, :agent,)
     end    
 end

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'users' => 'users#new'
   post '/users' => 'users#create'
   post 'users/login' => 'users#login'
-
+  get 'users/:user_id' => 'users#edit'
+  patch 'users/:user_id' => 'users#update'
+  get 'users/logout' => 'users#logout'
 
   get 'properties' => 'properties#index'
 
