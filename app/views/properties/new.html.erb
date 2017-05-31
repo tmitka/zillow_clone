@@ -1,4 +1,16 @@
-<a href="/properties">Dashboard</a>
+<nav>
+  <%if session[:current_user_name]%>
+  Logged in as <%= session[:current_user_name]%><br />
+  <%end%>
+  <a href="/properties">Home</a><br />
+  <% if session[:current_user_id]%>
+  <a href="/users/<%=session[:current_user_id]%>">Edit Profile</a><br />
+  <a href="/logout">Logout</a><br />
+  <%else%>
+  <a href="/users">Login/Register</a><br />
+  <%end %>
+</nav>
+<hr />
 <h1>List Your Tiny, but Mighty Home</h1>
 <hr><hr>
 <form action="/properties" method="post">

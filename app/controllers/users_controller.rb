@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     def new
     end
-    
+
     def create
         @user = User.new user_params
         if @user.save
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
         if @user
         session[:current_user_id] = @user.id
+        session[:current_user_name] = @user.first_name
         redirect_to '/'
         else
         flash[:errors] = ["Invalid email or password"]
@@ -40,12 +41,12 @@ class UsersController < ApplicationController
     end
 
     def logout
-        session.clear
-        redirect_to '/'
+        reset_session
+        redirect_to root_path
     end
 
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone_number, :agent,)
-    end    
+    end
 end

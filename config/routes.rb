@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   post 'users/login' => 'users#login'
   get 'users/:user_id' => 'users#edit'
   patch 'users/:user_id' => 'users#update'
-  get 'users/logout' => 'users#logout'
+  get '/logout' => 'users#logout'
 
-  get 'properties' => 'properties#index'
+  get '/properties' => 'properties#index'
 
   get 'properties/new' => 'properties#new'
 

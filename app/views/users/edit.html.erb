@@ -1,3 +1,16 @@
+<nav>
+  <%if session[:current_user_name]%>
+  Logged in as <%= session[:current_user_name]%><br />
+  <%end%>
+  <a href="/properties">Home</a><br />
+  <a href="/properties/new">Add a listing</a><br />
+  <% if session[:current_user_id]%>
+  <a href="/logout">Logout</a><br />
+  <%else%>
+  <a href="/users">Login/Register</a><br />
+  <%end %>
+</nav>
+<hr />
 <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
         <ul>
