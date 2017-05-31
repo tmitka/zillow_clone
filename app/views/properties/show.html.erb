@@ -1,0 +1,20 @@
+<a href="/properties">Dashboard</a>
+<a href="/properties/<%= @property.id %>">Edit Listing</a>
+<hr>
+<h1>$  <%= @property.price %></h1><hr>
+<h2>Tiny House Listing : <%= @property.id %></h2>
+<p>Address: <%= @property.address %></p>
+<p>Zip Code: <%= @property.zipcode %></p>
+<hr><hr>
+<h3><u>Details on Property</u></h3>
+Bedrooms: <%= @property.bedrooms %><br><br>
+Bathrooms: <%= @property.bathrooms %><br><br>
+Description: <%= @property.description %><br><br>
+Square Footage: <%= @property.sq_ft %><br><br>
+Rent? <%= @property.rent %>
+
+<p>Questions? Contact Us!</p>
+<form action="/properties" method="post">
+  <textarea name="name" rows="8" cols="50"></textarea><br>
+  <input type="submit" name="" value="Submit">
+</form>

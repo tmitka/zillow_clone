@@ -3,7 +3,7 @@
 <hr><hr>
 <form action="/properties" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  Address:<input type="text" name="property[address]" value=""><br><br>
+  Address (Include City and State):<input type="text" name="property[address]" value=""><br><br>
   Zipcode:<input type="text" name="property[zipcode]" value=""><br><br>
   Square Footage:<input type="text" name="property[sq_ft]" value=""><br><br>
   Longitude:<input type="text" name="property[longitude]" value=""><br><br>
@@ -24,8 +24,8 @@
       </select><br><br>
     Price:<input type="text" name="property[price]" value=""><br><br>
     Rent?<select class="" name="property[rent]">
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
       </select><br><br>
     Description:<br><textarea name="property[description]" rows="8" cols="80">
     </textarea><br><br>

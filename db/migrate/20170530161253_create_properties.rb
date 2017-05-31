@@ -5,7 +5,7 @@ class CreateProperties < ActiveRecord::Migration
       t.integer :bedrooms
       t.float :bathrooms
       t.integer :zipcode
-      t.decimal :price
+      t.integer :price
       t.boolean :rent
       t.text :description
       t.references :user, index: true, foreign_key: true

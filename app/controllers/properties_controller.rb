@@ -15,12 +15,18 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @property = Property.find(params[:property_id])
   end
 
   def edit
+    @property = Property.find(params[:property_id])
   end
 
   def update
+    @property = Property.find(params[:property_id])
+    @property.update(property_params)
+    @property.save
+      redirect_to "/properties"
   end
 
   def destroy

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   post 'properties' => 'properties#create'
 
-  get 'properties/:property_id' => 'properties#show'
+  get 'properties/:property_id/show' => 'properties#show'
 
   get 'properties/:property_id' => 'properties#edit'
 
