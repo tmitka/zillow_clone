@@ -35,8 +35,12 @@
     <td><%= p.latitude %></td>
     <td><%= p.longitude %></td>
     <td>
-      <a href="/properties/<%= p.id %>">View</a><br>
-      <a href="/properties/<%= p.id %>/delete" data-method="delete">Delete</a>
+      <a href="/properties/<%= p.id %>/show">View</a>
+      <p>
+      <a href="/properties/<%= p.id %>">Edit Listing</a>
+      </p>
+      <p>
+      <a href="/properties/<%= p.id %>/delete" data-method="delete">Delete</a></p>
     </td>
   </tr>
   <% end %>
