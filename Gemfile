@@ -28,6 +28,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
  gem 'sweetalert-rails'
 
+ gem 'geocoder'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

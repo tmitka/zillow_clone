@@ -8,14 +8,18 @@ class PropertiesController < ApplicationController
 
   def create
     @property = Property.new property_params
+    @property.user = User.find(session[:current_user_id])
     unless @property.save
       flash[:errors]= @property.errors.full_messages
-    end
+      redirect_to '/properties/new'
+    else
     redirect_to '/properties'
+  end
   end
 
   def show
     @property = Property.find(params[:property_id])
+    @agent = User.find(@property.user)
   end
 
   def edit
@@ -35,8 +39,12 @@ class PropertiesController < ApplicationController
     redirect_to '/properties'
   end
 
+
+
+
+
   private
     def property_params
-      params.require(:property).permit(:address, :bedrooms, :bathrooms, :zipcode, :price, :rent, :description, :longitude, :latitude, :sq_ft)
+      params.require(:property).permit(:address, :bedrooms, :bathrooms, :zipcode, :price, :rent, :description, :user, :longitude, :latitude, :sq_ft)
     end
 end
