@@ -1,16 +1,5 @@
-<nav>
-  <%if session[:current_user_name]%>
-  Logged in as <%= session[:current_user_name]%><br />
-  <a href="/properties/new">Add a listing</a><br />
-  <%end%>
-  <a href="/properties">Home</a><br />
-  <% if session[:current_user_id]%>
-  <a href="/logout">Logout</a><br />
-  <%else%>
-  <a href="/users">Login/Register</a><br />
-  <%end %>
-</nav>
-<hr />
+
+
 <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
         <ul>
@@ -31,7 +20,3 @@ Are you an Agent?<input name="user[agent]" type="radio" value="true" /> Yes
     <input name="user[agent]" type="radio" value="false" /> No<br><br>
     <input type="submit" name="" value="Update Account"><br><br>
 </form><br><br>
-
-  <% if current_user %>
-  <a href="/users/logout">Logout</a>
-  <% end %>

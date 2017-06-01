@@ -1,66 +1,56 @@
-<h1>Find Your Tiny Key to Sucess</h1>
-<hr>
-<nav>
-  <%if session[:current_user_name]%>
-  Logged in as <%= session[:current_user_name]%><br/>
-  <% end %>
-      <a href="/properties/new">Add a listing</a><br />
-  <% if session[:current_user_id]%>
-  <a href="/users/<%=session[:current_user_id]%>">Edit Profile</a><br />
-  <a href="/logout">Logout</a><br />
-  <%else%>
-  <a href="/users">Login/Register</a><br />
-  <%end %>
-</nav>
-<form class="" action="index.html" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="text" name="search_property" value="">
-  <input type="submit" name="" value="Search">
-</form>
-<br><br>
-<h3>Current Listings</h3>
-<table border="1", cellpadding="10">
-  <tr>
-    <th>Address</th>
-    <th>Zip Code</th>
-    <th>Bedrooms</th>
-    <th>Bathrooms</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Rent?</th>
-    <th>Square Footage</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th>Actions</th>
-  </tr>
-  <% @properties.each do |p| %>
-  <tr>
-    <td><%= p.address %></td>
-    <td><%= p.zipcode %></td>
-    <td><%= p.bedrooms %></td>
-    <td><%= p.bathrooms %></td>
-    <td><%= p.description %></td>
-    <td>$<%= p.price %></td>
-    <td><%= p.rent %></td>
-    <td><%= p.sq_ft %> ft.</td>
-    <td><%= p.latitude %></td>
-    <td><%= p.longitude %></td>
-    <td>
-      <a href="/properties/<%= p.id %>/show">View</a>
-      <p>
-      <% if session[:current_user_id] %>
-        <% if @user.agent && @user.id == p.user_id %>
-      <a href="/properties/<%= p.id %>">Edit Listing</a>
+<h1 id="heading">Find Your Tiny Key to Sucess</h1>
+<div class="form-group_search">
+  <form  action="index.html" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input class="form-control input-lg" id="searchbar" type="text" name="search_property" placeholder="Enter Address or Zip Code">
+    <input class="searchb" type="submit" name="" value="Search">
+  </form>
+</div>
+<div id="listings">
+    <h3>Current Listings</h3>
+    <table border="1", cellpadding="10", table bordercolor="black">
+      <tr>
+        <th>Address</th>
+        <th>Zip Code</th>
+        <th>Bedrooms</th>
+        <th>Bathrooms</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Rent?</th>
+        <th>Square Footage</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Actions</th>
+      </tr>
+      <% @properties.each do |p| %>
+      <tr>
+        <td><%= p.address %></td>
+        <td><%= p.zipcode %></td>
+        <td><%= p.bedrooms %></td>
+        <td><%= p.bathrooms %></td>
+        <td><%= p.description %></td>
+        <td>$<%= p.price %></td>
+        <td><%= p.rent %></td>
+        <td><%= p.sq_ft %> ft.</td>
+        <td><%= p.latitude %></td>
+        <td><%= p.longitude %></td>
+        <td>
+          <a href="/properties/<%= p.id %>/show">View</a>
+          <p>
+          <% if session[:current_user_id] %>
+          <% if @user.agent && @user.id == p.user_id %>
+          <a href="/properties/<%= p.id %>">Edit Listing</a>
+          <% end %>
+          <% end %>
+          </p>
+          <p>
+          <% if session[:current_user_id] %>
+          <% if @user.agent && @user.id == p.user_id %>
+          <a href="/properties/<%= p.id %>/delete" data-method="delete">Delete</a></p>
+          <% end %>
+          <% end %>
+        </td>
+      </tr>
       <% end %>
-      <% end %>
-      </p>
-      <p>
-      <% if session[:current_user_id] %>
-      <% if @user.agent && @user.id == p.user_id %>
-      <a href="/properties/<%= p.id %>/delete" data-method="delete">Delete</a></p>
-      <% end %>
-      <% end %>
-    </td>
-  </tr>
-  <% end %>
-</table>
+    </table>
+</div>

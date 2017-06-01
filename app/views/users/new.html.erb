@@ -1,10 +1,4 @@
-<nav>
-  <%if session[:current_user_name]%>
-  Logged in as <%= session[:current_user_name]%><br />
-  <a href="/properties/new">Add a listing</a><br />
-  <%end%>
-  <a href="/properties">Home</a><br />
-</nav>
+
 <hr />
 <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
@@ -15,8 +9,10 @@
         </ul>
     <% end %>
 <% end %>
-<p>Register for Tillow!</p>
+  <div class="user-searchbox">
+    <h3>Register for Tillow!</h3>
     <form action="/users" method="post">
+      <div class="form-group">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
             First Name:<input type="text" name="user[first_name]" value=""><br><br>
             Last Name:<input type="text" name="user[last_name]" value=""><br><br>
@@ -25,15 +21,20 @@
             Confirm Password:<input type="password" name="user[password_confirmation]" value=""><br><br>
             Phone Number:<input type="text" name="user[phone_number]"><br><br>
             Are you an Agent?<input name="user[agent]" type="radio" value="true" /> Yes
-<input name="user[agent]" type="radio" value="false" /> No<br><br>
-
-        <input type="submit" name="" value="Register"><br><br>
+        <input name="user[agent]" type="radio" value="false" /> No<br><br>
+        <input class="buttonf" type="submit" name="" value="Register"><br><br>
+      </div>
     </form>
+  </div>
 
-<p>Already signed up? Login here:</p>
+  <div class="login-searchbox">
+    <h3>Already signed up? Login here:</h3>
     <form action="/users/login" method="post">
+      <div class="form-group">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
             Email:<input type="text" name="email" value=""><br><br>
             Password:<input type="password" name="password" value=""><br><br>
-        <input type="submit" name="" value="Login">
+        <input class="buttonf" type="submit" name="" value="Login">
+      </div>
     </form>
+  </div>
