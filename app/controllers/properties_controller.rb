@@ -29,7 +29,7 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:property_id])
-    @agent = User.find(@property.user)
+    @agent = User.find(@property.user_id)
   end
 
   def edit
