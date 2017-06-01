@@ -25,6 +25,9 @@ Description: <%= @property.description %><br><br>
 Square Footage: <%= @property.sq_ft %><br><br>
 Rent? <%= @property.rent %>
 
+<% unless @favorited.exists? %>
+<h4> <a href="/favorites/<%=@property.id%>">Favorite</a></h4>
+<% end %>
 <p>Questions? <a href="mailto:<%=@agent.email %>? Subject=I'm interested in a house!">Contact Us!</a> </p>
 <form action="/properties" method="post">
   <textarea name="name" rows="8" cols="50"></textarea><br>

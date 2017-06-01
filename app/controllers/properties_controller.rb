@@ -29,6 +29,8 @@ class PropertiesController < ApplicationController
   def show
     @property = Property.find(params[:property_id])
     @agent = User.find(@property.user)
+    @favorited = Favorite.where(user:session[:current_user_id] ,property:params[:property_id])
+    
   end
 
   def edit
