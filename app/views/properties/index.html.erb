@@ -1,7 +1,6 @@
-
 <h1 id="heading">Find Your Tiny Key to Sucess</h1>
 <div class="form-group_search">
-  <form  action="index.html" method="post">
+  <form  action="/properties/search" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input class="form-control input-lg" id="searchbar" type="text" name="search_property" placeholder="Enter Address or Zip Code">
     <input class="searchb" type="submit" name="" value="Search">
@@ -39,10 +38,18 @@
         <td>
           <a href="/properties/<%= p.id %>/show">View</a>
           <p>
+          <% if session[:current_user_id] %>
+          <% if @user.agent && @user.id == p.user_id %>
           <a href="/properties/<%= p.id %>">Edit Listing</a>
+          <% end %>
+          <% end %>
           </p>
           <p>
+          <% if session[:current_user_id] %>
+          <% if @user.agent && @user.id == p.user_id %>
           <a href="/properties/<%= p.id %>/delete" data-method="delete">Delete</a></p>
+          <% end %>
+          <% end %>
         </td>
       </tr>
       <% end %>

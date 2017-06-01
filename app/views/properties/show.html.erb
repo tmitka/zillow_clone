@@ -27,7 +27,7 @@ Rent? <%= @property.rent %>
 <%= image_tag @property.image.url(:medium)  %>
 
 
-<p>Questions? Contact Us!</p>
+<p>Questions? <a href="mailto:<%=@agent.email %>? Subject=I'm interested in a house!">Contact Us!</a> </p>
 <form action="/properties" method="post">
   <textarea name="name" rows="8" cols="50"></textarea><br>
   <input type="submit" name="" value="Submit">

@@ -7,6 +7,7 @@
           <img id="logo" src="/assets/twillow.png" style="display: inline-block;">
         </a>
         <li class="dropdown">
+          <% if session[:current_user_id]%>
           <a href="/properties/new" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sell<span class="caret"></span></a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <li>Post a Tiny for Sale</li>
@@ -15,6 +16,7 @@
             <li><a href="/properties/new">Coming Soon</a></li>
           </ul>
         </li>
+        <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Buy<span class="caret"></span></a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
