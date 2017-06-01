@@ -44,6 +44,7 @@ end
 group :development do
   gem 'hirb'
   gem 'bootstrap-sass', '~> 3.1.1.0'
+  gem "paperclip", "~> 5.0.0"
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 

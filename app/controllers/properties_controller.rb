@@ -13,6 +13,7 @@ class PropertiesController < ApplicationController
   end
 
   def new
+    @property = Property.new
   end
 
   def create
@@ -49,13 +50,8 @@ class PropertiesController < ApplicationController
     @property.destroy
     redirect_to '/properties'
   end
-
-
-
-
-
   private
     def property_params
-      params.require(:property).permit(:address, :bedrooms, :bathrooms, :zipcode, :price, :rent, :description, :user, :longitude, :latitude, :sq_ft)
+      params.require(:property).permit(:address, :bedrooms, :bathrooms, :zipcode, :price, :rent, :description, :user_id, :longitude, :latitude, :sq_ft, :image)
     end
 end

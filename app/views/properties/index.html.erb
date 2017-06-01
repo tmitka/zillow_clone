@@ -24,6 +24,7 @@
       </tr>
       <% @properties.each do |p| %>
       <tr>
+        <td><%= image_tag p.image.url(:medium)  %></td>
         <td><%= p.address %></td>
         <td><%= p.zipcode %></td>
         <td><%= p.bedrooms %></td>
