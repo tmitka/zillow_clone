@@ -24,6 +24,8 @@ Bathrooms: <%= @property.bathrooms %><br><br>
 Description: <%= @property.description %><br><br>
 Square Footage: <%= @property.sq_ft %><br><br>
 Rent? <%= @property.rent %>
+<%= image_tag @property.image.url(:medium)  %>
+
 
 <p>Questions? Contact Us!</p>
 <form action="/properties" method="post">

@@ -4,6 +4,7 @@ class PropertiesController < ApplicationController
   end
 
   def new
+    @property = Property.new
   end
 
   def create
@@ -37,6 +38,6 @@ class PropertiesController < ApplicationController
 
   private
     def property_params
-      params.require(:property).permit(:address, :bedrooms, :bathrooms, :zipcode, :price, :rent, :description, :longitude, :latitude, :sq_ft)
+      params.require(:property).permit(:address, :bedrooms, :bathrooms, :zipcode, :price, :rent, :description, :longitude, :latitude, :sq_ft, :image)
     end
 end

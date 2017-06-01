@@ -1,36 +1,41 @@
 
-<h1>List Your Tiny, but Mighty Home</h1>
-  <div class="well-searchbox">
-    <form class="form-horizontal" action="/properties" method="post" role="form">
-      <div class="form-group">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        Address (Include City and State):<input type="text" name="property[address]" value=""><br><br>
-        Zipcode:<input type="text" name="property[zipcode]" value=""><br><br>
-        Square Footage:<input type="text" name="property[sq_ft]" value=""><br><br>
-        Longitude:<input type="text" name="property[longitude]" value="">
-        Latitude:<input type="text" name="property[latitude]" value=""><br><br>
-        Bedrooms:<select class="" name="property[bedrooms]">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        Bathrooms:<select class="" name="property[bathrooms]">
-            <option value="1">1</option>
-            <option value="1.5">1.5</option>
-            <option value="2">2</option>
-            <option value="2.5">2.5</option>
-            <option value="3">3</option>
-          </select><br><br>
-        Price:<input type="text" name="property[price]" value=""><br><br>
-        Rent?<select class="" name="property[rent]">
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select><br><br>
-        Description:<br><textarea name="property[description]" rows="5" cols="40">
-        </textarea><br><br>
-        <input class="buttonf" type="submit" name="" value="List Home">
-      </div>
-    </form>
-  </div>
+  <h1>List Your Tiny, but Mighty Home</h1>
+    <div class="well-searchbox">
+      <form class="form-horizontal" action="/properties" method="post" role="form">
+        <div class="form-group">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          Address (Include City and State):<input type="text" name="property[address]" value=""><br><br>
+          Zipcode:<input type="text" name="property[zipcode]" value=""><br><br>
+          Square Footage:<input type="text" name="property[sq_ft]" value=""><br><br>
+          Longitude:<input type="text" name="property[longitude]" value="">
+          Latitude:<input type="text" name="property[latitude]" value=""><br><br>
+          Bedrooms:<select class="" name="property[bedrooms]">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          Bathrooms:<select class="" name="property[bathrooms]">
+              <option value="1">1</option>
+              <option value="1.5">1.5</option>
+              <option value="2">2</option>
+              <option value="2.5">2.5</option>
+              <option value="3">3</option>
+            </select><br><br>
+          Price:<input type="text" name="property[price]" value=""><br><br>
+          Rent?<select class="" name="property[rent]">
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select><br><br>
+          Description:<br><textarea name="property[description]" rows="5" cols="40">
+          </textarea><br><br>
+<%= form_for @property, html: { multipart: true } do |f| %>
+          <%= f.label :image %><br>
+          <%= f.file_field :image %>
+          <br>
+          <input class="buttonf" type="submit" name="" value="List Home">
+        </div>
+      </form>
+    </div>
+<% end %>
