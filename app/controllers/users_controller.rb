@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     def new
     end
-    
+
     def create
         @user = User.new user_params
         if @user.save
@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 
         if @user
         session[:current_user_id] = @user.id
+        session[:current_user_name] = @user.first_name
+        session[:current_user_email]
         redirect_to '/'
         else
         flash[:errors] = ["Invalid email or password"]
@@ -25,8 +27,27 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+    end
+
+    def update
+        @user = current_user
+        if @user.valid?
+            @user.update(user_params)
+            @user.save
+            redirect_to "/users/#{@user.id}"
+        else flash[:errors]= @user.errors.full_messages
+            redirect_to "/users/#{@user.id}"
+        end
+    end
+
+    def logout
+        reset_session
+        redirect_to root_path
+    end
+
   private
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :agent)
-    end    
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone_number, :agent,)
+    end
 end
