@@ -1,6 +1,15 @@
 class PropertiesController < ApplicationController
   def index
     @properties = Property.all
+    if current_user
+    @user = User.find(current_user)
+    puts "*************"
+    puts current_user
+    puts current_user.id
+    puts @user
+    puts @user.agent
+    puts "************"
+    end
   end
 
   def new
@@ -37,6 +46,6 @@ class PropertiesController < ApplicationController
 
   private
     def property_params
-      params.require(:property).permit(:address, :bedrooms, :bathrooms, :zipcode, :price, :rent, :description, :longitude, :latitude, :sq_ft)
+      params.require(:property).permit(:address, :bedrooms, :bathrooms, :zipcode, :price, :rent, :description, :longitude, :latitude, :sq_ft, :user_id)
     end
 end

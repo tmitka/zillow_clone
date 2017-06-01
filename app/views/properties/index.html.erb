@@ -2,9 +2,9 @@
 <hr>
 <nav>
   <%if session[:current_user_name]%>
-  Logged in as <%= session[:current_user_name]%><br />
-  <a href="/properties/new">Add a listing</a><br />
-  <%end%>
+  Logged in as <%= session[:current_user_name]%><br/>
+  <% end %>
+      <a href="/properties/new">Add a listing</a><br />
   <% if session[:current_user_id]%>
   <a href="/users/<%=session[:current_user_id]%>">Edit Profile</a><br />
   <a href="/logout">Logout</a><br />
@@ -48,10 +48,18 @@
     <td>
       <a href="/properties/<%= p.id %>/show">View</a>
       <p>
+      <% if session[:current_user_id] %>
+        <% if @user.agent && @user.id == p.user_id %>
       <a href="/properties/<%= p.id %>">Edit Listing</a>
+      <% end %>
+      <% end %>
       </p>
       <p>
+      <% if session[:current_user_id] %>
+      <% if @user.agent && @user.id == p.user_id %>
       <a href="/properties/<%= p.id %>/delete" data-method="delete">Delete</a></p>
+      <% end %>
+      <% end %>
     </td>
   </tr>
   <% end %>
