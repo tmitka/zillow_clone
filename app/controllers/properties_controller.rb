@@ -17,7 +17,7 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    @property = Property.new property_params
+    @property = Property.create(property_params)
     @property.user = User.find(session[:current_user_id])
     unless @property.save
       flash[:errors]= @property.errors.full_messages
