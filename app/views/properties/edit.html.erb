@@ -1,34 +1,37 @@
-<a href="/properties">Dashboard</a>
-<hr>
+
 <h1>Edit Tiny House Listing ID: <%= @property.id %></h1>
-<form action="/properties/<%= @property.id%>" method="post">
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-<input type="hidden" name="_method" value="patch">
-Address (Include City and State):<input type="text" name="property[address]" value="<%= @property.address %>"><br><br>
-Zipcode:<input type="text" name="property[zipcode]" value="<%= @property.zipcode %>"><br><br>
-Square Footage:<input type="text" name="property[sq_ft]" value="<%= @property.sq_ft %>"><br><br>
-Longitude:<input type="text" name="property[longitude]" value="<%= @property.longitude %>"><br><br>
-Latitude:<input type="text" name="property[latitude]" value="<%= @property.latitude %>"><br><br>
-Bedrooms:<select class="" name="property[bedrooms]" value="<%= @property.bedrooms %>">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select><br><br>
-  Bathrooms:<select class="" name="property[bathrooms]" value="<%= @property.bathrooms %>">
-      <option value="1">1</option>
-      <option value="1.5">1.5</option>
-      <option value="2">2</option>
-      <option value="2.5">2.5</option>
-      <option value="3">3</option>
-    </select><br><br>
-  Price: $ <input type="text" name="property[price]" value="<%= @property.price %>"><br><br>
-  Rent?<select class="" name="property[rent]" value="<%= @property.rent %>">
-      <option value="true">Yes</option>
-      <option value="false">No</option>
-    </select><br><br>
-  Description:<br><textarea name="property[description]" rows="8" cols="80" placeholder="<%= @property.description %>">
-  </textarea><br><br>
-  <input type="submit" name="" value="Update Listing">
-</form>
+  <div class="well-searchbox">
+    <form class="form-horizontal" action="/properties/<%= @property.id%>" method="post">
+      <div class="form-group">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="patch">
+        Address (Include City and State):<input type="text" name="property[address]" value="<%= @property.address %>"><br><br>
+        Zipcode:<input type="text" name="property[zipcode]" value="<%= @property.zipcode %>"><br><br>
+        Square Footage:<input type="text" name="property[sq_ft]" value="<%= @property.sq_ft %>"><br><br>
+        Longitude:<input type="text" name="property[longitude]" value="<%= @property.longitude %>">
+        Latitude:<input type="text" name="property[latitude]" value="<%= @property.latitude %>"><br><br>
+        Bedrooms:<select class="" name="property[bedrooms]" value="<%= @property.bedrooms %>">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          Bathrooms:<select class="" name="property[bathrooms]" value="<%= @property.bathrooms %>">
+              <option value="1">1</option>
+              <option value="1.5">1.5</option>
+              <option value="2">2</option>
+              <option value="2.5">2.5</option>
+              <option value="3">3</option>
+            </select><br><br>
+          Price: $ <input type="text" name="property[price]" value="<%= @property.price %>"><br><br>
+          Rent?<select class="" name="property[rent]" value="<%= @property.rent %>">
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select><br><br>
+          Description:<br><textarea name="property[description]" rows="5" cols="40" placeholder="<%= @property.description %>">
+          </textarea><br><br>
+          <input class="buttonf" type="submit" name="" value="Update Listing">
+      </div>
+    </form>
+  </div>

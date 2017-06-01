@@ -2,11 +2,14 @@
 <html>
 <head>
   <title>ZillowClone</title>
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>  
+<body>
+<%= render partial: "shared/navbar" %>
+
   <% if flash[:errors] %>
     <% flash[:errors].each do |e| %>
       <span class=“error-message”><%= e %> </span>
