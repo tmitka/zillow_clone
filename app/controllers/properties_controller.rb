@@ -17,7 +17,7 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    @property = Property.new property_params
+    @property = Property.create(property_params)
     @property.user = User.find(session[:current_user_id])
     unless @property.save
       flash[:errors]= @property.errors.full_messages
@@ -29,7 +29,11 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:property_id])
+
     @agent = User.find(@property.user_id)
+
+    @favorited = Favorite.where(user:session[:current_user_id] ,property:params[:property_id])
+    
   end
 
   def edit
