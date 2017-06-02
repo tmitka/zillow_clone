@@ -31,9 +31,8 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:property_id])
-
+    @images = @property.images
     @agent = User.find(@property.user_id)
-
     @favorited = Favorite.where(user:session[:current_user_id] ,property:params[:property_id])
     @map = google_map(@property.address)
     puts @map
@@ -41,6 +40,9 @@ class PropertiesController < ApplicationController
 
   def edit
     @property = Property.find(params[:property_id])
+    @property_id = params[:property_id]
+    puts @property_id
+
   end
 
   def update

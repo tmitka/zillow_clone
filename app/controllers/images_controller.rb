@@ -5,7 +5,9 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image: params[:image], property: params[:property_id])
+    puts params[:property]
+    @property_id = Property.find(params[:property])
+    @image = Image.new(image: params[:image], property: @property_id)
     # @image.property = Property.first
     if @image.save
       redirect_to "/properties"

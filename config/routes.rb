@@ -32,6 +32,8 @@ Rails.application.routes.draw do
 
   get '/agents/:user_id' => 'agents#show'
 
+  post 'images/create' => 'images#create'
+
   get 'favorites' => 'favorites#index'
 
   get 'favorites/:property_id/delete' => 'favorites#destroy'
