@@ -12,6 +12,51 @@
  *
  *= require_tree .
  *= require_self
- *= require sweetalert
- *= require sweetalert/themes/twitter
  */
+@import "bootstrap";
+
+body {
+  color:red;
+  font-family: "Palatino", monospace;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.navbar-default {
+    background-color: white;
+    color:#9E0203;
+    margin-top: 15px;
+}
+
+#logo{
+  height: 100px;
+  width: 150px;
+  margin-top: -30px;
+  margin-right: 5px;
+
+}
+
+a {
+  color: white;
+}
+
+h1{
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  text-outline: black;
+  color:white;
+}
+select {
+  background-color: #261527;
+}
+
+.buttonf {
+  background-color: #261527;
+}
+
+#listings{
+  margin: 50px;
+  margin-top: 200px;
+  color:red;
+}

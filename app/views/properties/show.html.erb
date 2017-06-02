@@ -1,18 +1,8 @@
-<nav>
-  <%if session[:current_user_name]%>
-  Logged in as <%= session[:current_user_name]%><br />
-  <a href="/properties/new">Add a listing</a><br />
-  <%end%>
-  <a href="/properties">Home</a><br />
-  <% if session[:current_user_id]%>
-  <a href="/logout">Logout</a><br />
-  <%else%>
-  <a href="/users">Login/Register</a><br />
-  <%end %>
-</nav>
-<hr />
+<%if session[:current_user_name] && session[:current_user_id] == @agent.id%>
 <a href="/properties/<%= @property.id %>">Edit Listing</a>
+<% end %>
 <hr>
+
 <h1>$  <%= @property.price %></h1><hr>
 <h2>Tiny House Listing : <%= @property.id %></h2>
 <p>Address: <%= @property.address %></p>
@@ -54,4 +44,5 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZcWVqUUdPAc_YeAo9Zna9DFI
 <% unless @favorited.exists? %>
 <h4> <a href="/favorites/<%=@property.id%>">Favorite</a></h4>
 <% end %>
+<% if session[:current_user_id] != @agent.id%>
 <p>Questions? <a href="mailto:<%=@agent.email %>? Subject=I'm interested in a house!">Contact Us!</a> </p>
