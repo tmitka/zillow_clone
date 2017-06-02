@@ -3,9 +3,8 @@ class PropertiesController < ApplicationController
     @properties = Property.all
     if current_user
     @user = User.find(current_user)
-  else
-    redirect_to '/users/login'
-    end
+  end
+
   end
 
   def new

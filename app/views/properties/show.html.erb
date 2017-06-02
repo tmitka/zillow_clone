@@ -46,3 +46,4 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZcWVqUUdPAc_YeAo9Zna9DFI
 <% end %>
 <% if session[:current_user_id] != @agent.id%>
 <p>Questions? <a href="mailto:<%=@agent.email %>? Subject=I'm interested in a house!">Contact Us!</a> </p>
+<% end %>
