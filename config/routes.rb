@@ -24,6 +24,10 @@ Rails.application.routes.draw do
 
   get 'favorites/:id' => 'favorites#new'
 
+  get '/agents' => 'users#show'
+
+  get '/agents/:user_id' => 'agents#show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

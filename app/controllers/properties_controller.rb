@@ -3,12 +3,6 @@ class PropertiesController < ApplicationController
     @properties = Property.all
     if current_user
     @user = User.find(current_user)
-    puts "*************"
-    puts current_user
-    puts current_user.id
-    puts @user
-    puts @user.agent
-    puts "************"
     end
   end
 

@@ -45,6 +45,9 @@ class UsersController < ApplicationController
         redirect_to root_path
     end
 
+    def show
+        @agents = User.where(agent: true)
+    end
     
   private
     def user_params
