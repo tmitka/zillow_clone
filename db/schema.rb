@@ -24,28 +24,34 @@ ActiveRecord::Schema.define(version: 20170601221223) do
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "images", force: :cascade do |t|
-    t.integer  "property_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "property"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.string   "image"
   end
-
-  add_index "images", ["property_id"], name: "index_images_on_property_id"
 
   create_table "properties", force: :cascade do |t|
     t.string   "address"
     t.integer  "bedrooms"
     t.float    "bathrooms"
     t.integer  "zipcode"
-    t.decimal  "price"
+    t.integer  "price"
     t.boolean  "rent"
     t.text     "description"
     t.integer  "user_id"
     t.float    "longitude"
     t.float    "latitude"
     t.integer  "sq_ft"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "properties", ["user_id"], name: "index_properties_on_user_id"
@@ -57,8 +63,12 @@ ActiveRecord::Schema.define(version: 20170601221223) do
     t.string   "password_digest"
     t.string   "phone_number"
     t.boolean  "agent"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end
