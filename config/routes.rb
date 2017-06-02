@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   get 'properties/new' => 'properties#new'
 
+  get 'properties/interior' => 'properties#interior'
+
+  get 'properties/exterior' => 'properties#exterior'
+
   post 'properties' => 'properties#create'
 
   get 'properties/:property_id/show' => 'properties#show'
@@ -23,10 +27,6 @@ Rails.application.routes.draw do
   delete 'properties/:property_id/delete' => 'properties#destroy'
 
   get 'favorites/:id' => 'favorites#new'
-
-  get 'properties/interior' => 'properties#interior'
-
-  get 'properties/exterior' => 'properties#exterior'
 
   get '/agents' => 'users#show'
 
@@ -92,4 +92,3 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
->>>>>>> 321d65160e4158ae946d93a379d0fdda51f36dc1
