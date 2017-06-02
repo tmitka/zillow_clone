@@ -24,14 +24,34 @@ Bathrooms: <%= @property.bathrooms %><br><br>
 Description: <%= @property.description %><br><br>
 Square Footage: <%= @property.sq_ft %><br><br>
 Rent? <%= @property.rent %>
-<%= image_tag @property.image.url(:medium)  %>
+
+<style>
+  #map {
+    height: 200px;
+    width: 50%;
+   }
+</style>
+</head>
+<div id="map"></div>
+<script>
+  function initMap() {
+    var uluru = {lat: <%= @property.latitude %> , lng: <%=@property.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 13,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZcWVqUUdPAc_YeAo9Zna9DFIV8NBXC9M&callback=initMap">
+</script>
 
 
 <% unless @favorited.exists? %>
 <h4> <a href="/favorites/<%=@property.id%>">Favorite</a></h4>
 <% end %>
 <p>Questions? <a href="mailto:<%=@agent.email %>? Subject=I'm interested in a house!">Contact Us!</a> </p>
-<form action="/properties" method="post">
-  <textarea name="name" rows="8" cols="50"></textarea><br>
-  <input type="submit" name="" value="Submit">
-</form>

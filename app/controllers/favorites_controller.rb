@@ -9,4 +9,24 @@ else
   redirect_to '/properties'
 end
 end
+
+def index
+  @properties = []
+  @favorites = Favorite.where(user:session[:current_user_id])
+  @favorites.each do |fav|
+    @properties.append(Property.find(fav.property))
+  end
+
+def destroy
+  @fav = Favorite.where(user:User.find(session[:current_user_id]), property:Property.find(params[:property_id]))
+  puts @fav
+  redirect_to '/favorites'
+
+end
+
+
+end
+
+
+
 end
