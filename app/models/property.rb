@@ -4,7 +4,7 @@ class Property < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   has_many :favorites
   has_many :images
-  validates :bedrooms, :bathrooms, :zipcode, :price, :longitude, :latitude, :sq_ft, presence: true
+  validates :bedrooms, :bathrooms, :zipcode, :price, :sq_ft, presence: true
   validates :description, :address, presence: true, length: {minimum: 5}
   geocoded_by :address
   after_validation :geocode
