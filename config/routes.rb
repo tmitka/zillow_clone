@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'images/new'
-
-  post 'images/create' => 'images#create'
-
   root 'properties#index'
   get 'users' => 'users#new'
   post '/users' => 'users#create'
@@ -18,8 +14,6 @@ Rails.application.routes.draw do
 
   post 'properties' => 'properties#create'
 
-  get 'properties/interior' => 'properties#interior'
-
   get 'properties/:property_id/show' => 'properties#show'
 
   get 'properties/:property_id' => 'properties#edit'
@@ -29,6 +23,19 @@ Rails.application.routes.draw do
   delete 'properties/:property_id/delete' => 'properties#destroy'
 
   get 'favorites/:id' => 'favorites#new'
+
+  get 'properties/interior' => 'properties#interior'
+
+  get 'properties/exterior' => 'properties#exterior'
+
+  get '/agents' => 'users#show'
+
+  get '/agents/:user_id' => 'agents#show'
+
+  get 'favorites' => 'favorites#index'
+
+  get 'favorites/:property_id/delete' => 'favorites#destroy'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -85,3 +92,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+>>>>>>> 321d65160e4158ae946d93a379d0fdda51f36dc1

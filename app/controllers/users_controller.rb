@@ -45,7 +45,11 @@ class UsersController < ApplicationController
         redirect_to root_path
     end
 
-    
+
+    def show
+        @agents = User.where(agent: true)
+    end
+
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone_number, :agent,)

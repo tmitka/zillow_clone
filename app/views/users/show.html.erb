@@ -1,0 +1,13 @@
+<h1>Find an Agent Today!</h1>
+
+
+<table border="1", cellpadding="10", table bordercolor="black">
+<tr>
+    <th>Agent</th>
+</tr>
+<% @agents.each do |a| %>
+    <tr>
+        <td><a href="/agents/<%= a.id %>"><%= a.first_name %></td></a><br><br>
+    </tr>
+<% end %>
+</table>

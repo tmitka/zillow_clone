@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170601221223) do
     t.integer  "bedrooms"
     t.float    "bathrooms"
     t.integer  "zipcode"
-    t.integer  "price"
+    t.decimal  "price"
     t.boolean  "rent"
     t.text     "description"
     t.integer  "user_id"
