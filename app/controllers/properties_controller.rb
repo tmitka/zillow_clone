@@ -3,7 +3,9 @@ class PropertiesController < ApplicationController
     @properties = Property.all
     if current_user
     @user = User.find(current_user)
+
     end
+
   end
 
   def new
@@ -27,7 +29,8 @@ class PropertiesController < ApplicationController
     @agent = User.find(@property.user_id)
 
     @favorited = Favorite.where(user:session[:current_user_id] ,property:params[:property_id])
-    
+    @map = google_map(@property.address)
+    puts @map
   end
 
   def edit
@@ -46,8 +49,16 @@ class PropertiesController < ApplicationController
     @property.destroy
     redirect_to '/properties'
   end
+
+
+
   private
     def property_params
       params.require(:property).permit(:address, :bedrooms, :bathrooms, :zipcode, :price, :rent, :description, :user_id, :longitude, :latitude, :sq_ft, :image)
     end
+
+    def google_map(center)
+      "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=300x300&zoom=17"
+    end
+
 end
