@@ -13,12 +13,17 @@ Bedrooms: <%= @property.bedrooms %><br><br>
 Bathrooms: <%= @property.bathrooms %><br><br>
 Description: <%= @property.description %><br><br>
 Square Footage: <%= @property.sq_ft %><br><br>
-Rent? <%= @property.rent %>
+Rent? <%= @property.rent %><br>
 
+<%@images.each do |image|%>
+<%=image_tag image.image%>
+<%end %>
+<br>
+<hr>
 <style>
   #map {
-    height: 200px;
-    width: 50%;
+    height: 400px;
+    width: 75%;
    }
 </style>
 </head>
@@ -44,6 +49,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZcWVqUUdPAc_YeAo9Zna9DFI
 <% unless @favorited.exists? %>
 <h4> <a href="/favorites/<%=@property.id%>">Favorite</a></h4>
 <% end %>
-<% if session[:current_user_id] != @agent.id%>
+<% unless session[:current_user_id] != @agent.id%>
 <p>Questions? <a href="mailto:<%=@agent.email %>? Subject=I'm interested in a house!">Contact Us!</a> </p>
 <% end %>

@@ -38,6 +38,7 @@
   <h1 id="add">Add an Image</h1>
   <form action="/images/create" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
     <input name="utf8" type="hidden" value="&#x2713;">
+    <input type="hidden" name="property" value="<%=@property_id%>">
     <input type="file" name="image">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <button class="buttonf" type-"submit">Submit</button>
