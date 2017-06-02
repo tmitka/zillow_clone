@@ -1,37 +1,23 @@
-<nav>
-  <%if session[:current_user_name]%>
-  Logged in as <%= session[:current_user_name]%><br />
-  <a href="/properties/new">Add a listing</a><br />
-  <%end%>
-  <a href="/properties">Home</a><br />
-  <% if session[:current_user_id]%>
-  <a href="/logout">Logout</a><br />
-  <%else%>
-  <a href="/users">Login/Register</a><br />
-  <%end %>
-</nav>
-<hr />
-<a href="/properties/<%= @property.id %>">Edit Listing</a>
-<hr>
-<h1>$  <%= @property.price %></h1><hr>
-<h2>Tiny House Listing : <%= @property.id %></h2>
-<p>Address: <%= @property.address %></p>
-<p>Zip Code: <%= @property.zipcode %></p>
-<hr><hr>
-<h3><u>Details on Property</u></h3>
-Bedrooms: <%= @property.bedrooms %><br><br>
-Bathrooms: <%= @property.bathrooms %><br><br>
-Description: <%= @property.description %><br><br>
-Square Footage: <%= @property.sq_ft %><br><br>
-Rent? <%= @property.rent %>
-<%= image_tag @property.image.url(:medium)  %>
+<div id="show">
+  <a class="edit" href="/properties/<%= @property.id %>">Edit Listing</a>
+  <hr>
+  <h1>$  <%= @property.price %></h1><hr>
+  <h3>Tiny Listing : <%= @property.id %></h3>
+  <p>Address: <%= @property.address %><%= @property.zipcode %></p>
+  <hr>
+  <h4><u>Details on Property</u></h4>
+  Bedrooms: <%= @property.bedrooms %>
+  Bathrooms: <%= @property.bathrooms %><br><br>
+  Description: <%= @property.description %><br><br>
+  Square Footage: <%= @property.sq_ft %><br><br>
+  Rent? <%= @property.rent %>
 
-
-<% unless @favorited.exists? %>
-<h4> <a href="/favorites/<%=@property.id%>">Favorite</a></h4>
-<% end %>
-<p>Questions? <a href="mailto:<%=@agent.email %>? Subject=I'm interested in a house!">Contact Us!</a> </p>
-<form action="/properties" method="post">
-  <textarea name="name" rows="8" cols="50"></textarea><br>
-  <input type="submit" name="" value="Submit">
-</form>
+  <% unless @favorited.exists? %>
+  <h4> <a class="edit" href="/favorites/<%=@property.id%>">Favorite</a></h4>
+  <% end %>
+  <p>Questions? <a class="edit" href="mailto:<%=@agent.email %>? Subject=I'm interested in a house!">Contact Us!</a> </p>
+  <form action="/properties" method="post">
+    <textarea name="name" rows="4" cols="30"></textarea><br>
+    <input class="buttonf" type="submit" name="" value="Submit">
+  </form>
+</div>

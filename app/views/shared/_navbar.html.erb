@@ -1,3 +1,4 @@
+
     <nav class="navbar navbar-default">
       <div class="container">
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -7,7 +8,7 @@
           <img id="logo" src="/assets/twillow.png">
         </a>
         <li class="dropdown">
-          <% if session[:current_user_id]%>
+          <% if session[:current_user_id] %>
           <a href="/properties/new" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sell<span class="caret"></span></a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <li>Post a Tiny for Sale</li>
@@ -47,11 +48,11 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tiny House Ideas<span class="caret"></span></a>
+          <a href="/properties/interior" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tiny House Ideas<span class="caret"></span></a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <li>Ideas for Your Tiny Home</li>
-            <li><a href="/properties">Interior</a></li>
-            <li><a href="/properties">Exterior</a></li>
+            <li><a href="/properties/interior">Interior</a></li>
+            <li><a href="/properties/exterior">Exterior</a></li>
           </ul>
         </li>
       </ul>
@@ -63,7 +64,7 @@
       </form> -->
       <ul class="nav navbar-nav navbar-right">
         <%if session[:current_user_name]%>
-        Logged in as <%= session[:current_user_name]%><br />
+        <!-- Logged in as <%= session[:current_user_name]%> -->
         <li><a href="/properties/new">Add a listing</a></li>
         <%end%>
         <li><a href="/properties">Home</a><br /></li>
@@ -72,6 +73,7 @@
         <li><a href="/logout">Logout</a></li>
         <%else%>
         <li><a href="/users">Login/Register</a></li>
+        Logged in as <%= session[:current_user_name]%>
         <%end %>
 
       </ul>

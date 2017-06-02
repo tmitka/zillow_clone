@@ -16,3 +16,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+jQuery(document).ready(function() {
+  jQuery('[data-toggle="tooltip"]').tooltip()
+ });

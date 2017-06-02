@@ -29,13 +29,9 @@
               <option value="false">No</option>
             </select><br><br>
           Description:<br><textarea name="property[description]" rows="5" cols="40">
-          </textarea><br><br>
-<%= form_for @property, html: { multipart: true } do |f| %>
-          <%= f.label :image %><br>
-          <%= f.file_field :image %>
+          </textarea>
           <br>
           <input class="buttonf" type="submit" name="" value="List Home">
         </div>
       </form>
     </div>
-<% end %>

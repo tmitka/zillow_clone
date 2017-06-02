@@ -14,9 +14,11 @@
  *= require_self
  */
 @import "bootstrap";
+@import "properties";
+@import "interior";
 
 body {
-  color:red;
+  color:grey;
   font-family: "Palatino", monospace;
   margin-left: 20px;
   font-size: 16px;
@@ -25,19 +27,21 @@ body {
 .navbar-default {
     background-color: white;
     color:#9E0203;
-    margin-top: 15px;
+    margin-top: 30px;
+    margin-bottom: -50px;
+    height: 50px;
 }
 
 #logo{
-  height: 100px;
-  width: 150px;
-  margin-top: -30px;
-  margin-right: 5px;
-
+  height: 90px;
+  width: 170px;
+  margin-top: -35px;
+  margin-left: -60px;
+  border-radius: 5px;
 }
 
 a {
-  color: white;
+  color: black;
 }
 
 h1{
@@ -45,7 +49,10 @@ h1{
   font-weight: bold;
   font-size: 40px;
   text-outline: black;
+  margin-top: 80px;
+  margin-bottom: 5px;
   color:white;
+  text-shadow: -1px -1px 0 #000;
 }
 select {
   background-color: #261527;
@@ -58,5 +65,13 @@ select {
 #listings{
   margin: 50px;
   margin-top: 200px;
-  color:red;
+  color:gray;
+}
+
+.footnote{
+  height: 40px;
+  color:white;
+  text-align: center;
+  background-color: #75D2B5;
+  padding: 20px;
 }

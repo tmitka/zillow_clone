@@ -31,7 +31,10 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:property_id])
     @agent = User.find(@property.user)
     @favorited = Favorite.where(user:session[:current_user_id] ,property:params[:property_id])
-    
+
+  end
+
+  def interior
   end
 
   def edit
@@ -52,6 +55,6 @@ class PropertiesController < ApplicationController
   end
   private
     def property_params
-      params.require(:property).permit(:address, :bedrooms, :bathrooms, :zipcode, :price, :rent, :description, :user_id, :longitude, :latitude, :sq_ft, :image)
+      params.require(:property).permit(:address, :bedrooms, :bathrooms, :zipcode, :price, :rent, :description, :user_id, :longitude, :latitude, :sq_ft)
     end
 end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'images/new'
+
+  post 'images/create' => 'images#create'
+
   root 'properties#index'
   get 'users' => 'users#new'
   post '/users' => 'users#create'
@@ -13,6 +17,8 @@ Rails.application.routes.draw do
   get 'properties/new' => 'properties#new'
 
   post 'properties' => 'properties#create'
+
+  get 'properties/interior' => 'properties#interior'
 
   get 'properties/:property_id/show' => 'properties#show'
 

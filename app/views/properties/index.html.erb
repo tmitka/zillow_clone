@@ -1,4 +1,4 @@
-<h1 id="heading">Find Your Tiny Key to Sucess</h1>
+<h1 id="heading">Find Your Tiny Key To Happiness</h1>
 <div class="form-group_search">
   <form  action="/properties/search" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -6,9 +6,10 @@
     <input class="searchb" type="submit" name="" value="Search">
   </form>
 </div>
+<div id="design"><p> _______________ <img id="logomid" src="/assets/twillow.png"> ______________</p></div>
 <div id="listings">
     <h3>Current Listings</h3>
-    <table border="1", cellpadding="10", table bordercolor="black">
+    <table class="table table-hover table-striped table-inverse">
       <tr>
         <th>Address</th>
         <th>Zip Code</th>
@@ -24,7 +25,6 @@
       </tr>
       <% @properties.each do |p| %>
       <tr>
-        <td><%= image_tag p.image.url(:medium)  %></td>
         <td><%= p.address %></td>
         <td><%= p.zipcode %></td>
         <td><%= p.bedrooms %></td>
@@ -54,4 +54,34 @@
       </tr>
       <% end %>
     </table>
+</div>
+<h3><u>Recent Sales</u></h3>
+<div class="house">
+  <img class="first" src="/assets/bird.jpg">
+  <p>SOLD! $739,000  112 Lake Tahoe, 63819</p>
+  <div class="house2">
+  <img class="second" src="/assets/waterhouse.jpg">
+  <p>SOLD! $130,000 3108 N Atlantic, 60131</p>
+  </div>
+</div>
+<div class="house">
+  <img class="first" src="/assets/trailor.jpg">
+  <p>SOLD! $689,000  462 Abraham, 93729</p>
+  <div class="house2">
+  <img class="second" src="/assets/cabin.jpg">
+  <p>SOLD! $967,000 3544 N Pupperoni, 60721</p>
+  </div>
+</div>
+<div class="house3">
+  <img id="third" src="/assets/treehouse.jpg">
+  <p>SOLD! $456,000  311 Ocean, 80273</p>
+</div>
+
+<div class="footnote">
+<span class="footnote" data-toggle="tooltip">Contact Us</span>
+<span class="footnote" data-toggle="tooltip">Comments</span>
+<span class="footnote" data-toggle="tooltip">Careers</span>
+<span class="footnote" data-toggle="tooltip">About</span>
+<span class="footnote" data-toggle="tooltip">Help</span>
+<span class="footnote" data-toggle="tooltip">Terms of Use and Privacy</span>
 </div>
