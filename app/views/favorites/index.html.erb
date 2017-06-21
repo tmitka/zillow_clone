@@ -1,4 +1,4 @@
 <h1>Favorites:</h1>
 <% @properties.each do |property| %>
-<a href="/properties/<%=property.id%>/show"><%= property.address %></a>---<a href="/favorites/<%=property.id%>/delete">Remove</a><br />
+<a class="text" href="/properties/<%=property.id%>/show"><%= property.address %></a>---<a class="text" href="/favorites/<%=property.id%>/delete">Remove</a><br />
 <% end %>

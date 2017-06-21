@@ -1,54 +1,55 @@
-<%if session[:current_user_name] && session[:current_user_id] == @agent.id%>
-<a href="/properties/<%= @property.id %>">Edit Listing</a>
-<% end %>
-<hr>
 
-<h1>$  <%= @property.price %></h1><hr>
-<h2>Tiny House Listing : <%= @property.id %></h2>
-<p>Address: <%= @property.address %></p>
-<p>Zip Code: <%= @property.zipcode %></p>
-<hr><hr>
-<h3><u>Details on Property</u></h3>
-Bedrooms: <%= @property.bedrooms %><br><br>
-Bathrooms: <%= @property.bathrooms %><br><br>
-Description: <%= @property.description %><br><br>
-Square Footage: <%= @property.sq_ft %><br><br>
-Rent? <%= @property.rent %><br>
+<div id="show">
+  <h1>$  <%= @property.price %></h1><hr>
+  <h2>Tiny House Listing : <%= @property.id %></h2>
+  <p>Address: <%= @property.address %></p>
+  <p>Zip Code: <%= @property.zipcode %></p>
+  <hr><hr>
+  <h3><u>Details on Property</u></h3>
+  Bedrooms: <%= @property.bedrooms %>
+  Bathrooms: <%= @property.bathrooms %><br><br>
+  Description: <%= @property.description %><br><br>
+  Square Footage: <%= @property.sq_ft %><br><br>
+  Rent? <%= @property.rent %><br>
+  <hr>
+  <%if session[:current_user_name] && session[:current_user_id] == @agent.id%>
+  <a id="a" href="/properties/<%= @property.id %>">Edit Listing</a>
+  <% end %>
+</div>
+  <%@images.each do |image|%>
+  <%=image_tag image.image%>
+  <%end %>
+  <br>
+  <hr>
+  <style>
+    #map {
+      height: 500px;
+      width: 75%;
+     }
+  </style>
+  </head>
+  <div id="map"></div>
+  <script>
+    function initMap() {
+      var uluru = {lat: <%= @property.latitude %> , lng: <%=@property.longitude %>};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: uluru
+      });
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZcWVqUUdPAc_YeAo9Zna9DFIV8NBXC9M&callback=initMap">
+  </script>
 
-<%@images.each do |image|%>
-<%=image_tag image.image%>
-<%end %>
-<br>
-<hr>
-<style>
-  #map {
-    height: 400px;
-    width: 75%;
-   }
-</style>
-</head>
-<div id="map"></div>
-<script>
-  function initMap() {
-    var uluru = {lat: <%= @property.latitude %> , lng: <%=@property.longitude %>};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 13,
-      center: uluru
-    });
-    var marker = new google.maps.Marker({
-      position: uluru,
-      map: map
-    });
-  }
-</script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZcWVqUUdPAc_YeAo9Zna9DFIV8NBXC9M&callback=initMap">
-</script>
 
-
-<% unless @favorited.exists? %>
-<h4> <a href="/favorites/<%=@property.id%>">Favorite</a></h4>
-<% end %>
-<% unless session[:current_user_id] != @agent.id%>
-<p>Questions? <a href="mailto:<%=@agent.email %>? Subject=I'm interested in a house!">Contact Us!</a> </p>
-<% end %>
+  <% unless @favorited.exists? %>
+  <h1> <a href="/favorites/<%=@property.id%>">Favorite</a></h1>
+  <% end %>
+  <% unless session[:current_user_id] != @agent.id%>
+  <p>Questions? <a href="mailto:<%=@agent.email %>? Subject=I'm interested in a house!">Contact Us!</a> </p>
+  <% end %>
